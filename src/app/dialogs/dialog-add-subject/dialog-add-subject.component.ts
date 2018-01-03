@@ -33,7 +33,7 @@ export class DialogAddSubjectComponent implements OnInit {
       this.dialogRef.close(form.value);
     }
   }
-  dataValue(value){
+  dataValue(value:string){
     if(this.data.id){ 
       switch (value) {
         case 'name':

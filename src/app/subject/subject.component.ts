@@ -47,6 +47,7 @@ export class SubjectComponent implements OnInit {
 
   openFileDialog(subject?: Subject, id?: string) {
     if (id) {
+      console.log('editando')
       this.dialogAddSubject = this.dialog.open(DialogAddSubjectComponent, {
         data: {
           subject:subject,
@@ -64,7 +65,10 @@ export class SubjectComponent implements OnInit {
           console.log(err);
         }
         )
+
     } else {
+      console.log('insertando')
+
       this.dialogAddSubject = this.dialog.open(DialogAddSubjectComponent, {
         data: {},
         width: '250px'
@@ -134,6 +138,7 @@ export class SubjectComponent implements OnInit {
       .subscribe(
       data => {
         this.openSnackbar('Actualizado con exito', '', 2000);
+        this.getSubject();
       },
       err => {
         console.log(err)
