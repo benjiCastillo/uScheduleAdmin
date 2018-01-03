@@ -1,0 +1,8 @@
+  <h1 mat-dialog-title>{{ data.title }}</h1>
+  <mat-dialog-content>
+    {{ data.content }}
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button color="primary" (click)='actionSubject(data.id, data.action)'>Eliminar</button>
+    <button mat-button type="button" mat-dialog-close color="warn">Cancelar</button>
+  </mat-dialog-actions>

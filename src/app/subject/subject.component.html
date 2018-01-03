@@ -1,78 +1,26 @@
+<button mat-fab class="btn-add" (click)="openFileDialog()">
+  <mat-icon aria-label="add" >add</mat-icon>
+</button>
 <h1 class="mat-display-1">Materias</h1>
-<mat-grid-list cols="3" rowHeight="2:1">
+<mat-spinner [diameter]="60" [strokeWidth]="3" *ngIf="loadSubjects"></mat-spinner>
+
+<mat-grid-list cols="3" rowHeight="2:1" *ngIf="!loadSubjects">
   <mat-grid-tile *ngFor="let subject of subjects">
     <mat-card class="example-card">
       <mat-card-header>
         <mat-card-title>{{ subject.name }}</mat-card-title>
         <mat-card-subtitle>{{ subject.acronym }}</mat-card-subtitle>
+        <button class="btn-delete" mat-icon-button color="primary" (click)="openDialog(subject._id,'delete','Eliminar','Desea realmente eliminar?')">
+          <mat-icon aria-label="btnDelete" >delete</mat-icon>
+        </button>
+        <button class="btn-update" mat-icon-button color="accent"  (click)="openFileDialog(subject, subject._id)">
+          <mat-icon aria-label="btnUpdate">edit</mat-icon>
+        </button>
       </mat-card-header>
       <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
       <mat-card-content>
         <p>
          Semestre : {{ subject.semester}}
-        </p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>LIKE</button>
-        <button mat-button>SHARE</button>
-      </mat-card-actions>
-    </mat-card>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <mat-card class="example-card">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>Shiba Inu</mat-card-title>
-        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-      </mat-card-header>
-      <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
-      <mat-card-content>
-        <p>
-          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-          bred for hunting.
-        </p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>LIKE</button>
-        <button mat-button>SHARE</button>
-      </mat-card-actions>
-    </mat-card>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <mat-card class="example-card">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>Shiba Inu</mat-card-title>
-        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-      </mat-card-header>
-      <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
-      <mat-card-content>
-        <p>
-          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-          bred for hunting.
-        </p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>LIKE</button>
-        <button mat-button>SHARE</button>
-      </mat-card-actions>
-    </mat-card>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <mat-card class="example-card">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>Shiba Inu</mat-card-title>
-        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-      </mat-card-header>
-      <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
-      <mat-card-content>
-        <p>
-          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-          bred for hunting.
         </p>
       </mat-card-content>
       <mat-card-actions>
